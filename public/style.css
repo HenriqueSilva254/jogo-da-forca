@@ -1,0 +1,110 @@
+body {
+    margin: 0 auto;
+    width: 1025px;
+
+    background: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+
+}
+.container {
+    display: flex;
+    position: relative;
+   
+}
+.forca {
+    width: 765px;
+    height: 466.67px;
+    margin-left: 38px;
+    margin-top: 59px;
+    background-image: url(./projeto__forca__imagens/assets/forca0.png);
+    background-size: 400px;
+    
+}
+
+.escolher {
+    
+    margin-right: 53px;
+    margin-top: 89px;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+
+}
+.escolher button {
+   
+    width: 200px;
+    height: 60px;
+   
+    background: #27AE60;
+    border: inherit;
+    
+    border-radius: 8px;
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 23px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: white;
+
+
+}
+.palavra-secreta{
+  
+    position: absolute;
+    bottom: 20px;
+    right: 40px;
+    height: 68px;
+
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 68px;
+
+    color: #000000;
+}
+.palavra-secreta ul {
+    display: flex;
+}
+.palavra-secreta li {
+    margin: 3px;
+}
+.alfabeto {
+    margin-top: 59px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.alfabeto div{
+    display: flex;
+    flex-wrap: wrap;
+    width: 700px;
+}
+.alfabeto button {
+    width: 40px;
+    height: 40px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 12px;
+    margin-top: 11px;
+    color: #39739D;
+    border: 1px solid #7AA7C7;
+
+}
+.alfabetoDesbilidato{
+    background: #9FAAB5;
+}
+.alfabetoHabilidato {
+    background: #E1ECF4;
+} 
