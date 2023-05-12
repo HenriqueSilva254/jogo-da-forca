@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 export default function Jogo() {
     // const [palavraSecreta, setpalavraSecreta] = useState()
     let [PalavraSorteada, setPalavraSorteada] = useState()
-    let [Botoes, setBotoes] = useState(Alfabeto.map(Botoes => <button className="alfabetoDesbilidato" onClick={() => ConferirTentativas(Botoes)} id={`botao_letra${Botoes}`} disabled>{Botoes}</button>))
+    let [Botoes, setBotoes] = useState(Alfabeto.map(Botoes => <button className="alfabetoDesbilidato" data-test="letter" onClick={() => ConferirTentativas(Botoes)} id={`botao_letra${Botoes}`} disabled>{Botoes}</button>))
     let ListaDinamica = []
     let [Li, setLi] = useState("");
     let [inicial, setInicial] = useState(0)
@@ -16,14 +16,14 @@ export default function Jogo() {
     return (
         <div>
             <div className="container">
-                <div className="forca">
+                <div data-test="game-image" className="forca">
 
                 </div>
                 <div className="escolher">
-                    <button onClick={Ramdomizar} id="escolherPalavra" >Escolher Palavra</button>
+                    <button onClick={Ramdomizar} data-test="choose-word" id="escolherPalavra" >Escolher Palavra</button>
                 </div>
                 <div className="palavra-secreta">
-                   <ul id="letras">
+                   <ul id="letras" data-test="word">
 
                    </ul>
                 </div>
@@ -45,7 +45,7 @@ export default function Jogo() {
         setPalavraSorteada(PalavraSorteada)
         
         //ReactDOM.render( <Palavra />, document.querySelector('.palavra-secreta'))
-        setBotoes(Alfabeto.map(Botoes => <button className="alfabetoHabilidato" onClick={() => ConferirTentativas(Botoes)} id={`botao_letra${Botoes}`}>{Botoes}</button>))
+        setBotoes(Alfabeto.map(Botoes => <button className="alfabetoHabilidato" data-test="letter" onClick={() => ConferirTentativas(Botoes)} id={`botao_letra${Botoes}`}>{Botoes}</button>))
         Forca()
     }
     function ConferirTentativas(letra){
