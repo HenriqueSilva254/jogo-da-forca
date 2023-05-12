@@ -66,6 +66,7 @@ export default function Jogo() {
         }
         if(Tentativas === 0){
             EndGame()
+            setBotoes(Alfabeto.map(Botoes => <button className="alfabetoDesabilidato" data-test="letter" onClick={() => ConferirTentativas(Botoes)} disabled id={`botao_letra${Botoes}`}>{Botoes}</button>))
             
         }
        
