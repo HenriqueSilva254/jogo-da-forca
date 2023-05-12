@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Alfabeto from "./Alfabeto";
-import Palavras from "./palavras";
+import Palavras from "./palavras"
 import ReactDOM from 'react-dom';
 
 export default function Jogo() {
@@ -51,6 +51,7 @@ export default function Jogo() {
     function ConferirTentativas(letra){
         const Desabilitar = document.getElementById(`botao_letra${letra}`)
         console.log(Tentativas)
+       
         if(Tentativas > 0){
             Desabilitar.classList.remove("alfabetoHabilidato")     
             Desabilitar.classList.add("alfabetoDesbilidato")
@@ -58,7 +59,11 @@ export default function Jogo() {
             //console.log(Desabilitar)
             ComparaLetras(letra)
             Forca(PalavraSorteada)
-        }else{ alert("Voce Perdeu")}
+        }
+        if(Tentativas === 0){
+            EndGame()
+            
+        }
        
     }
     function ComparaLetras(letra){
@@ -128,20 +133,13 @@ export default function Jogo() {
         }
         
     }
-}
-
-  /* 
-    function Palavra() {
-
-        
-        const NovaString = new String(PalavraSorteada)
-        
-        Forca(NovaString)
-         
-
-        return <ul> <li> {Li} </li></ul>
+    function EndGame(){
+        const espacos = document.getElementById('letras')
+        espacos.innerHTML = `${PalavraSorteada}`
+        espacos.style.color = "red"
         
     }
-    */
+}
+    
 
 

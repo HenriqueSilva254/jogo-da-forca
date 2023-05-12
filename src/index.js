@@ -11,7 +11,7 @@ ReactDOM.render(<Jogo />, document.querySelector('.root'))
 */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Jogo from './componetes/Jogo';
+import Jogo from './Jogo';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
