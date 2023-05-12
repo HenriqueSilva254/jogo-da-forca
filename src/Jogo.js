@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 export default function Jogo() {
     // const [palavraSecreta, setpalavraSecreta] = useState()
     let [PalavraSorteada, setPalavraSorteada] = useState()
-    let [Botoes, setBotoes] = useState(Alfabeto.map(Botoes => <button className="alfabetoDesbilidato" data-test="letter" onClick={() => ConferirTentativas(Botoes)} id={`botao_letra${Botoes}`} disabled>{Botoes}</button>))
+    let [Botoes, setBotoes] = useState(Alfabeto.map(Botoes => <button className="alfabetoDesabilidato" data-test="letter" onClick={() => ConferirTentativas(Botoes)} id={`botao_letra${Botoes}`} disabled>{Botoes}</button>))
     let ListaDinamica = []
     let [Li, setLi] = useState("");
     let [inicial, setInicial] = useState(0)
@@ -16,8 +16,8 @@ export default function Jogo() {
     return (
         <div>
             <div className="container">
-                <div data-test="game-image" className="forca">
-
+                <div className="forca">
+                <img data-test="game-image"  className="imagemForca" src="./projeto__forca__imagens/assets/forca0.png"/>
                 </div>
                 <div className="escolher">
                     <button onClick={Ramdomizar} data-test="choose-word" id="escolherPalavra" >Escolher Palavra</button>
@@ -36,6 +36,10 @@ export default function Jogo() {
     
     
     function Ramdomizar() {
+        const espacos = document.getElementById('letras')
+        espacos.style.color = "black"
+        document.querySelector('.imagemForca').setAttribute("src", `./projeto__forca__imagens/assets/forca0.png`) 
+       
 
         inicial = 1
         
@@ -67,14 +71,15 @@ export default function Jogo() {
        
     }
     function ComparaLetras(letra){
+        console.log(PalavraSorteada)
         
         const pos = PalavraSorteada.indexOf(letra)
         if(pos < 0 ){
            Tentativas--
            contador++
            console.log(contador)
-           document.querySelector('.forca').style.background = `url(./projeto__forca__imagens/assets/forca${contador}.png)`
-           document.querySelector('.forca').style.backgroundSize = "400px"
+           document.querySelector('.imagemForca').setAttribute("src", `./projeto__forca__imagens/assets/forca${contador}.png`) 
+          
         }
         else{
             for (let i = 0; i < PalavraSorteada.length; i++) {
@@ -83,22 +88,19 @@ export default function Jogo() {
                 }
             }
         }
-        
-        /* 
-         const ListadeLetras = []
         let acertos = 0
-        for (let i = 0; i < PalavraSorteada.length; i++) {
-            if(letra === PalavraSorteada[i]){
+        for(let i = 0; i < ListaDinamica.length; i++){
+            if(ListaDinamica[i] !== "_"){
                 acertos++
-                //console.log(Li[i])
+            }
+            if(acertos === ListaDinamica.length){
+            const espacos = document.getElementById('letras')
+            espacos.style.color = "green"
+
+            setBotoes(Alfabeto.map(Botoes => <button className="alfabetoDesabilidato" data-test="letter" onClick={() => ConferirTentativas(Botoes)} disabled id={`botao_letra${Botoes}`}>{Botoes}</button>))
             }
         }
-        if(acertos < 1){
-            //console.log("errou moral")
-            Tentativas--
-        }
-        */
-        
+     
         
     }
     function Botoesletras() {
